@@ -8,6 +8,8 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import SingleCategory from '../components/SingleCategory/SingleCategory';
 import './SeeAnswer.css'
+import slider1 from '../assets/images/bg/All Question-02.jpg'
+import allQA from '../assets/images/bg/All Question-01.jpg'
 
 const SeeAnswer = () => {
 
@@ -15,8 +17,6 @@ const SeeAnswer = () => {
         const res = await axios.get('http://localhost:5000/categories')
         return res.data;
     })
-
-    console.log(categories)
 
     return (
         <div>
@@ -30,16 +30,20 @@ const SeeAnswer = () => {
             <Container>
                 <div>
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-3 my-3'>
-                        <div className='col-span-2 bg-blue-400 w-full h-80'>
-                            <h3>Slider Here</h3>
+                        <div className='col-span-2'>
+                            <img className='w-full h-96' src={slider1} alt="" />
                         </div>
                         <div>
-                            <div className='h-48 w-full bg-[#005492] text-white'>
-                                <h3>এক নজরে সকল প্রশ্নোত্তর</h3>
+                            <div className='bg-[#005492] text-white mb-2'>
+                                <img className='h-48 w-full' src={allQA} alt="" />
                             </div>
                             <h3>এক নজরে সকল প্রশ্নোত্তর</h3>
-                            <button>বিস্তারিত</button>
-                            <h3>Important Links Here</h3>
+                            <p>আমার প্রশ্ন হচ্ছে নামায এ আমরা সেজদাই যে দুয়া গুলো পরি, আমি কি সে দুয়া গুলর পাশাপাশি নিজের মত করে বাংলাতে দুয়া করতে পারব।</p>
+
+                            <button className='py-2 px-5 mt-3 bg-[#005492] text-white w-1/2 order-1'>বিস্তারিত</button>
+                            <div className='flex justify-end'>
+                                <button className='py-2 px-5 bg-[#005492] text-white w-1/2 order-last'>বিস্তারিত</button>
+                            </div>
                         </div>
                     </div>
 
@@ -63,7 +67,7 @@ const SeeAnswer = () => {
 
 
                             <div className='text-center w-full bg-[#005492] text-white text-lg py-2'>প্রশ্নোত্তর</div>
-                            <div className='md:py-10 md:ps-10 py-5'>
+                            <div className='md:ps-5 py-5'>
                                 <Outlet />
                             </div>
                         </div>
@@ -74,7 +78,7 @@ const SeeAnswer = () => {
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                             {/* md:fixed md:top-0 */}
 
-                            <ul className="menu w-64 border-r-4 text-neutral-600 border-neutral-300 mt-20 md:mt-0 bg-neutral-100 md:bg-none">
+                            <ul className="menu w-48 border-r-4 text-neutral-600 border-neutral-300 mt-20 md:mt-0 bg-neutral-100 md:bg-none">
                                 {/* Sidebar content here */}
 
                                 <div className='w-full flex flex-col'>
