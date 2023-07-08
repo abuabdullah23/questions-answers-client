@@ -67,7 +67,7 @@ const SeeAnswer = () => {
 
 
                             <div className='text-center w-full bg-[#005492] text-white text-lg py-2'>প্রশ্নোত্তর</div>
-                            <div className='md:ps-5 py-5'>
+                            <div className='md:ps-5 pb-5 pt-2'>
                                 <Outlet />
                             </div>
                         </div>

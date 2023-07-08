@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScaleLoader } from 'react-spinners';
 
+
 const Loader = () => {
     return (
         <div
@@ -12,7 +13,7 @@ const Loader = () => {
       items-center 
     '
         >
-            <ScaleLoader size={100} color='red' />
+            <ScaleLoader size={100} color='gray' />
         </div>
     );
 };
