@@ -6,7 +6,7 @@ import Footer from '../pages/Shared/Footer/Footer';
 
 const Main = () => {
     return (
-        <div>
+        <div className='font-kalpurush'>
             <Navbar />
             <Container> <div className="pt-24 pb-20">
                 <Outlet />

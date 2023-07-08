@@ -19,7 +19,7 @@ const SeeAnswer = () => {
     })
 
     return (
-        <div>
+        <div className='font-kalpurush'>
             <div className='hidden md:block'>
                 <Navbar />
             </div>
