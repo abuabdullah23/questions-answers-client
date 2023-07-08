@@ -10,12 +10,12 @@ const Navbar = () => {
 
     const navOptions =
         <div className='md:flex items-center'>
-            <li> <Link to="/home">হোম</Link></li>
+            <li> <Link to="/">হোম</Link></li>
             <li> <Link to="/activity">কার্যক্রম</Link></li>
             <li> <Link to="/media">মিডিয়া</Link></li>
             <li> <Link to="/publication">প্রকাশনা</Link></li>
             <li> <Link to="/askQuestion">প্রশ্ন করুন</Link></li>
-            <li> <Link to="/seeAnswer">প্রশ্নের উত্তর দেখুন</Link></li>
+            <li> <Link to="qa/see-answer">প্রশ্নের উত্তর দেখুন</Link></li>
             <li> <Link to="/aboutUs">আমাদের সম্পর্কে</Link></li>
             <li> <Link to="/donate">দান করুন</Link></li>
             <li> <Link to="/communicate">যোগাযোগ</Link></li>
