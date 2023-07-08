@@ -32,7 +32,7 @@ const SingleCategory = ({ category }) => {
         <>
             <div
                 onClick={handleClick}
-                className='hover:bg-[#003983] hover:text-white cursor-pointer py-2 ps-4'>
+                className='hover:bg-[#003983] hover:text-white cursor-pointer py-2 ps-4 text-lg'>
                 <Link>{category.category}</Link>
             </div>
         </>

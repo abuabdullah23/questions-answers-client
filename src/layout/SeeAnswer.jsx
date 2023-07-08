@@ -30,19 +30,23 @@ const SeeAnswer = () => {
             <Container>
                 <div>
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-3 my-3'>
-                        <div className='col-span-2'>
-                            <img className='w-full h-96' src={slider1} alt="" />
+                        <div className='col-span-2 bg-[#005492]'>
+                            <img className='w-full h-48 sm:h-72 md:h-96 object-contain' src={slider1} alt="" />
                         </div>
                         <div>
-                            <div className='bg-[#005492] text-white mb-2'>
-                                <img className='h-48 w-full' src={allQA} alt="" />
-                            </div>
-                            <h3>এক নজরে সকল প্রশ্নোত্তর</h3>
+                            <Link to='/qa/see-answer'>
+                                <div className='bg-[#005492] text-white mb-2'>
+                                    <img className='h-44 w-full object-contain' src={allQA} alt="" />
+                                </div>
+                            </Link>
+                            <Link to='/qa/see-answer'>
+                                <h3 className='text-xl font-bold'>এক নজরে সকল প্রশ্নোত্তর</h3>
+                            </Link>
                             <p>আমার প্রশ্ন হচ্ছে নামায এ আমরা সেজদাই যে দুয়া গুলো পরি, আমি কি সে দুয়া গুলর পাশাপাশি নিজের মত করে বাংলাতে দুয়া করতে পারব।</p>
 
-                            <button className='py-2 px-5 mt-3 bg-[#005492] text-white w-1/2 order-1'>বিস্তারিত</button>
+                            <button className='text-lg font-semibold py-2 px-5 mt-3 bg-[#005492] text-white w-1/2 order-1'>বিস্তারিত...</button>
                             <div className='flex justify-end'>
-                                <button className='py-2 px-5 bg-[#005492] text-white w-1/2 order-last'>বিস্তারিত</button>
+                                <button className='text-lg font-semibold py-2 px-5 bg-[#005492] text-white w-1/2 order-last'>প্রশ্নোত্তর</button>
                             </div>
                         </div>
                     </div>
@@ -66,14 +70,14 @@ const SeeAnswer = () => {
                             </label>
 
 
-                            <div className='text-center w-full bg-[#005492] text-white text-lg py-2'>প্রশ্নোত্তর</div>
+                            <div className='text-center w-full bg-[#005492] text-white text-2xl py-2'>প্রশ্নোত্তর</div>
                             <div className='md:ps-5 pb-5 pt-2'>
                                 <Outlet />
                             </div>
                         </div>
 
                         <div className="drawer-side h-screen p-0 m-0">
-                            <div className='text-center bg-[#003e6b] text-white text-lg py-2 hidden md:block'>ক্যাটাগরি</div>
+                            <div className='text-center bg-[#003e6b] text-white text-xl pt-3 pb-2 hidden md:block'>ক্যাটাগরি</div>
 
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                             {/* md:fixed md:top-0 */}
@@ -82,7 +86,7 @@ const SeeAnswer = () => {
                                 {/* Sidebar content here */}
 
                                 <div className='w-full flex flex-col'>
-                                    <Link to='/' className='my-2 ps-4'>
+                                    <Link to='/' className='text-lg my-2 ps-4'>
                                         হোম
                                     </Link>
                                     {
