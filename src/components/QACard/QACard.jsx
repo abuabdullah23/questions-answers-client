@@ -3,7 +3,7 @@ import React from 'react';
 const QACard = ({ qa }) => {
     const { _id, Link, question, answer, category, date } = qa;
     return (
-        <div className='cursor-pointer rounded-md border-2 border-neutral-100 hover:border-[#005492] hover:scale-105 transition'>
+        <div className='cursor-pointer rounded-md border-2 border-neutral-100 hover:border-[#005492]'>
             <div className='bg-neutral-200 rounded-t-md w-full h-36 flex items-center justify-center text-center py-2 px-4'>
                 <div>
                     <h4 className='font-bold text-xl'>প্রশ্ন: {Link.slice(3,)}</h4>

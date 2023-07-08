@@ -8,8 +8,8 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import SingleCategory from '../components/SingleCategory/SingleCategory';
 import './SeeAnswer.css'
-import slider1 from '../assets/images/bg/All Question-02.jpg'
-import allQA from '../assets/images/bg/All Question-01.jpg'
+import slider1 from '../assets/images/bg/slider1.jpg'
+import allQA from '../assets/images/bg/qa1.jpg'
 
 const SeeAnswer = () => {
 
