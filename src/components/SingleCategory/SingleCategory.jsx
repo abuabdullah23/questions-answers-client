@@ -18,7 +18,7 @@ const SingleCategory = ({ category }) => {
             category: category.category
         }
         const url = qs.stringifyUrl({
-            url: '/qa/',
+            url: '/qa/see-answer',
             query: updatedQuery
         },
             {

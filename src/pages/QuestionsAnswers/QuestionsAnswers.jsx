@@ -9,17 +9,18 @@ const QuestionsAnswers = () => {
     const [questions, setQuestions] = useState([]);
     const [params, setParams] = useSearchParams();
     const category = params.get('category');
+    console.log(category, params)
 
     useEffect(() => {
         setLoading(true)
         fetch('https://question-answer-server.vercel.app/questions-answers')
             .then(res => res.json())
             .then(data => {
-                if (category) {
+                if (category === 'সকল প্রশ্নোত্তর') {
+                    setQuestions(data)
+                } else if (category) {
                     const filtered = data.filter(qa => qa.category === category)
                     setQuestions(filtered);
-                } else if (category === 'সকল প্রশ্নোত্তর') {
-                    setQuestions(data)
                 } else {
                     setQuestions(data)
                 }
@@ -82,6 +83,16 @@ export default QuestionsAnswers;
 //     return res.data;
 // })
 
+// const {data} = useQuery({
+//     queryKey: ['todos', todoId],
+//     queryFn: () => fetchTodoById(todoId),
+//   })
+
+// const {data} = useQuery({
+//     queryKey: ['todos', user, category],
+//     queryFn: () => {
+// fetch().....
+// },
+//   })
 
 
- //     :
