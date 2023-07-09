@@ -6,7 +6,7 @@ const QACard = ({ qa }) => {
     return (
         <>
             <Link to={`/qa/qa-details/${_id}`}>
-                <div className='rounded-md border-2 border-neutral-200 hover:border-[#005492]'>
+                <div className='rounded-md border-2 border-neutral-200 hover:border-[#005492] bg-neutral-50 text-neutral-600'>
                     <div className='bg-neutral-200 rounded-t-md w-full h-36 flex items-center justify-center text-center py-2 px-4'>
                         <div>
                             <h4 className='font-bold text-2xl'>প্রশ্ন: <span className='font-sutonnyMJ text-3xl'>{Number.slice(11,)}</span></h4>

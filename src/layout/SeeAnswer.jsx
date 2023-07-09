@@ -29,11 +29,11 @@ const SeeAnswer = () => {
 
             <Container>
                 <div>
-                    <div className='grid grid-cols-1 md:grid-cols-3 gap-3 my-3'>
-                        <div className='col-span-2 bg-[#005492]'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 md:gap-3 my-3'>
+                        <div className='col-span-2 bg-[#005492] mb-3 md:mb-0'>
                             <img className='w-full h-48 sm:h-72 md:h-96 object-contain' src={slider1} alt="" />
                         </div>
-                        <div>
+                        <div className='w-full'>
                             <Link to='/qa/see-answer'>
                                 <div className='bg-[#005492] text-white mb-2'>
                                     <img className='h-44 w-full object-contain' src={allQA} alt="" />

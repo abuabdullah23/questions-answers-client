@@ -38,7 +38,7 @@ const QADetails = () => {
 
             <div className='mt-28 relative text-center'>
                 <hr className='border-t-2 border-neutral-300' />
-                <Link to='/qa/ask-question'><button className='text-xl py-2 px-6 rounded-full absolute -top-6 -ms-14 bg-neutral-400 hover:bg-neutral-200'>প্রশ্ন করুন</button></Link>
+                <Link to='/qa/ask-question'><button className='text-xl py-2 px-6 rounded-full absolute -top-6 -ms-14 bg-neutral-200 hover:bg-neutral-300'>প্রশ্ন করুন</button></Link>
             </div>
 
         </div>

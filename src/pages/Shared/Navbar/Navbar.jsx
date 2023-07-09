@@ -27,18 +27,18 @@ const Navbar = () => {
             <div className='pt-2 border-b[1px]'>
                 <Container>
                     <div className='flex items-center justify-between text-neutral-600'>
-                        <div className="navbar-start">
-                            <Link to="/" className='hidden md:block m-0 '>
-                                <img src={logo} className='h-10 w-10 bg-white p-1 rounded-sm' alt="Logo Image" />
-                            </Link>
+                        <div className="navbar">
                             <div className="dropdown">
-                                <label tabIndex={0} className="btn btn-ghost lg:hidden m-0 p-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#005492]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                                <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                                 </label>
-                                <ul tabIndex={0} className="text-lg menu menu-sm dropdown-content shadow bg-neutral-300 rounded-box w-52">
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-52 text-black uppercase">
                                     {navOptions}
                                 </ul>
                             </div>
+                            <Link to="/">
+                                <img src={logo} className='h-12 w-12 bg-white p-1 rounded-sm' alt="Logo Image" />
+                            </Link>
                         </div>
 
                         <div className="navbar-center hidden lg:flex text-[#005492]">
