@@ -10,27 +10,33 @@ const QuestionsAnswers = () => {
     const [questions, setQuestions] = useState([]);
     const [params, setParams] = useSearchParams();
     const category = params.get('category');
-    console.log(category, params)
+    // console.log(category, params)
 
-    const { data } = useQuery({
-        queryKey: ['questionsAnswers', category],
-        queryFn: () => {
-            setLoading(true);
-            fetch('https://question-answer-server.vercel.app/questions-answers')
-                .then(res => res.json())
-                .then(data => {
-                    if (category === 'সকল প্রশ্নোত্তর') {
-                        setQuestions(data)
-                    } else if (category) {
-                        const filtered = data.filter(qa => qa.category === category)
-                        setQuestions(filtered);
-                    } else {
-                        setQuestions(data)
-                    }
-                    setLoading(false);
-                })
+    const { data: questionsAnswers = [], isLoading, isError } = useQuery(['questionsAnswers', category], async () => {
+        setLoading(true);
+        // console.log(questionsAnswers)
+        try {
+            const response = await fetch('https://question-answer-server.vercel.app/questions-answers');
+            const data = await response.json();
+
+            if (category === 'সকল প্রশ্নোত্তর') {
+                setQuestions(data)
+            } else if (category) {
+                const filtered = data.filter(qa => qa.category === category);
+                setQuestions(filtered)
+            } else {
+                setQuestions(data)
+            }
+
+            return data;
+
+        } catch (error) {
+            console.error(error);
+            throw new Error('Error occurred while fetching data');
+        } finally {
+            setLoading(false);
         }
-    })
+    });
 
 
     if (loading) {
@@ -112,5 +118,26 @@ export default QuestionsAnswers;
 //             setLoading(false);
 //         })
 // }, [category])
+
+// Old Code fetching data with useQuery
+ // const { data: questionsAnswers =[] } = useQuery({
+    //     queryKey: ['questionsAnswers', category],
+    //     queryFn: () => {
+    //         setLoading(true);
+    //         fetch('https://question-answer-server.vercel.app/questions-answers')
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (category === 'সকল প্রশ্নোত্তর') {
+    //                     setQuestions(data)
+    //                 } else if (category) {
+    //                     const filtered = data.filter(qa => qa.category === category)
+    //                     setQuestions(filtered);
+    //                 } else {
+    //                     setQuestions(data)
+    //                 }
+    //                 setLoading(false);
+    //             })
+    //     }
+    // })
 
 
