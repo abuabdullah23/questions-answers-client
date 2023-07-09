@@ -23,7 +23,7 @@ const QADetails = () => {
             {/* Answers Section */}
             <h2 className='text-4xl text-center mt-10 text-neutral-700'>উত্তর</h2>
             <div className='text-center flex justify-center mb-4'>
-                <hr className='border-t-2 border-neutral-400 md:w-40 text-center' />
+                <hr className='border-t-2 border-neutral-400 w-40 text-center' />
             </div>
             <div className='text-neutral-600'>
                 <p className='text-lg'>{answer.slice(7,)}</p>
@@ -38,7 +38,7 @@ const QADetails = () => {
 
             <div className='mt-28 relative text-center'>
                 <hr className='border-t-2 border-neutral-300' />
-                <Link><button className='text-xl py-2 px-6 rounded-full absolute -top-6 bg-neutral-400 hover:bg-neutral-200'>প্রশ্ন করুন</button></Link>
+                <Link to='/qa/ask-question'><button className='text-xl py-2 px-6 rounded-full absolute -top-6 -ms-14 bg-neutral-400 hover:bg-neutral-200'>প্রশ্ন করুন</button></Link>
             </div>
 
         </div>
