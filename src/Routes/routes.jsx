@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
 import QuestionsAnswers from "../pages/QuestionsAnswers/QuestionsAnswers";
 import ErrorPage from "../layout/ErrorPage";
+import QADetails from "../pages/QA/QADetails/QADetails";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,12 @@ const router = createBrowserRouter([
             {
                 path: 'see-answer',
                 element: <QuestionsAnswers />
-            }
+            },
+            {
+                path: 'qa-details/:id',
+                element: <QADetails/>,
+                loader: ({params}) => fetch(`https://question-answer-server.vercel.app/qa-details/${params.id}`)
+            },
         ]
     }, 
     {

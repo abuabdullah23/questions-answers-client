@@ -5,7 +5,7 @@ import SubmitButton from '../components/Buttons/SubmitButton';
 import {FaArrowLeft} from 'react-icons/fa'
 const ErrorPage = () => {
     return (
-        <div className='md:px-16 md:pt-32 pl-5 pt-10 pe-5 md:flex sm:flex-row-reverse gap-5 items-center justify-center'>
+        <div className='md:px-16 md:pt-32 pl-5 pt-10 pe-5 md:flex sm:flex-row-reverse gap-5 items-center justify-center font-kalpurush'>
             <div className='w-full'>
                 <img src={errImg} alt="Error Image" />
             </div>

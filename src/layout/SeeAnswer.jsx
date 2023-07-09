@@ -14,7 +14,7 @@ import allQA from '../assets/images/bg/qa1.jpg'
 const SeeAnswer = () => {
 
     const { data: categories = [], refetch } = useQuery(['categories'], async () => {
-        const res = await axios.get('http://localhost:5000/categories')
+        const res = await axios.get('https://question-answer-server.vercel.app/categories')
         return res.data;
     })
 

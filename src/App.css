@@ -1,4 +1,5 @@
 @font-face {
-    font-family: 'kalpurush';
-    src: url('./assets/fonts/kalpurush.ttf');
+    font-family: 'kalpurush', 'sutonnyMj';
+    src: url('./assets/fonts/kalpurush.ttf'), url('./assets/fonts/SUTOM___.TTF');
+
   }

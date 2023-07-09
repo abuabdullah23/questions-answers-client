@@ -12,7 +12,7 @@ const QuestionsAnswers = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/questions-answers')
+        fetch('https://question-answer-server.vercel.app/questions-answers')
             .then(res => res.json())
             .then(data => {
                 if (category) {
@@ -77,7 +77,7 @@ export default QuestionsAnswers;
 
 
 // const { data: questionsAnswers = [], refetch } = useQuery(['qa'], async () => {
-//     const res = await axios.get('http://localhost:5000/questions-answers');
+//     const res = await axios.get('https://question-answer-server.vercel.app/questions-answers');
 //     setQuestions(questionsAnswers)
 //     return res.data;
 // })
