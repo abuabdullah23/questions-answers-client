@@ -2,16 +2,20 @@ import React from 'react';
 import Navbar from '../pages/Shared/Navbar/Navbar';
 import Container from '../components/Container/Container';
 import Footer from '../pages/Shared/Footer/Footer';
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, useSearchParams } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import SingleCategory from '../components/SingleCategory/SingleCategory';
 import './SeeAnswer.css'
-import slider1 from '../assets/images/bg/slider1.jpg'
-import allQA from '../assets/images/bg/qa1.jpg'
+import QASliderSection from '../components/QASliderSection/QASliderSection';
 
 const SeeAnswer = () => {
+
+    // for show selected category in the top of page
+    const [params, setParams] = useSearchParams();
+    const category = params.get('category');
+    console.log(category);
 
     const { data: categories = [], refetch } = useQuery(['categories'], async () => {
         const res = await axios.get('https://question-answer-server.vercel.app/categories')
@@ -29,27 +33,12 @@ const SeeAnswer = () => {
 
             <Container>
                 <div>
-                    <div className='grid grid-cols-1 md:grid-cols-3 md:gap-3 my-3'>
-                        <div className='col-span-2 bg-[#005492] mb-3 md:mb-0'>
-                            <img className='w-full h-48 sm:h-72 md:h-96 object-contain' src={slider1} alt="" />
-                        </div>
-                        <div className='w-full'>
-                            <Link to='/qa/see-answer'>
-                                <div className='bg-[#005492] text-white mb-2'>
-                                    <img className='h-44 w-full object-contain' src={allQA} alt="" />
-                                </div>
-                            </Link>
-                            <Link to='/qa/see-answer'>
-                                <h3 className='text-xl font-bold'>এক নজরে সকল প্রশ্নোত্তর</h3>
-                            </Link>
-                            <p>আমার প্রশ্ন হচ্ছে নামায এ আমরা সেজদাই যে দুয়া গুলো পরি, আমি কি সে দুয়া গুলর পাশাপাশি নিজের মত করে বাংলাতে দুয়া করতে পারব।</p>
-
-                            <button className='text-lg font-semibold py-2 px-5 mt-3 bg-[#005492] text-white w-1/2 order-1'>বিস্তারিত...</button>
-                            <div className='flex justify-end'>
-                                <button className='text-lg font-semibold py-2 px-5 bg-[#005492] text-white w-1/2 order-last'>প্রশ্নোত্তর</button>
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        category
+                            ? <div className='flex items-center justify-center w-full h-32 md:h-56 text-3xl md:text-6xl bg-[#005492] text-white mb-3'><p>{category}</p></div>
+                            :
+                            <QASliderSection />
+                    }
 
                     <div className='flex items-center justify-between mb-3'>
                         <input type="text" className='py-3 px-4 w-full bg-neutral-200' placeholder='প্রশ্নোত্তর খুঁজুন' />
