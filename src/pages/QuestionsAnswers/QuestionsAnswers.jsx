@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { IoGridOutline, IoList } from 'react-icons/io5';
 import QACard from '../../components/QACard/QACard';
 import Loader from '../../components/Loader/Loader';
 import { useSearchParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 const QuestionsAnswers = () => {
     const [loading, setLoading] = useState(false)
@@ -11,22 +12,26 @@ const QuestionsAnswers = () => {
     const category = params.get('category');
     console.log(category, params)
 
-    useEffect(() => {
-        setLoading(true)
-        fetch('https://question-answer-server.vercel.app/questions-answers')
-            .then(res => res.json())
-            .then(data => {
-                if (category === 'সকল প্রশ্নোত্তর') {
-                    setQuestions(data)
-                } else if (category) {
-                    const filtered = data.filter(qa => qa.category === category)
-                    setQuestions(filtered);
-                } else {
-                    setQuestions(data)
-                }
-                setLoading(false);
-            })
-    }, [category])
+    const { data } = useQuery({
+        queryKey: ['questionsAnswers', category],
+        queryFn: () => {
+            setLoading(true);
+            fetch('https://question-answer-server.vercel.app/questions-answers')
+                .then(res => res.json())
+                .then(data => {
+                    if (category === 'সকল প্রশ্নোত্তর') {
+                        setQuestions(data)
+                    } else if (category) {
+                        const filtered = data.filter(qa => qa.category === category)
+                        setQuestions(filtered);
+                    } else {
+                        setQuestions(data)
+                    }
+                    setLoading(false);
+                })
+        }
+    })
+
 
     if (loading) {
         return <Loader />
@@ -84,15 +89,28 @@ export default QuestionsAnswers;
 // })
 
 // const {data} = useQuery({
-//     queryKey: ['todos', todoId],
-//     queryFn: () => fetchTodoById(todoId),
-//   })
-
-// const {data} = useQuery({
 //     queryKey: ['todos', user, category],
 //     queryFn: () => {
 // fetch().....
 // },
 //   })
+
+// fetch data with useEffect
+// useEffect(() => {
+//     setLoading(true)
+//     fetch('https://question-answer-server.vercel.app/questions-answers')
+//         .then(res => res.json())
+//         .then(data => {
+//             if (category === 'সকল প্রশ্নোত্তর') {
+//                 setQuestions(data)
+//             } else if (category) {
+//                 const filtered = data.filter(qa => qa.category === category)
+//                 setQuestions(filtered);
+//             } else {
+//                 setQuestions(data)
+//             }
+//             setLoading(false);
+//         })
+// }, [category])
 
 
