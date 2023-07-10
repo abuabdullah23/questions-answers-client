@@ -1,11 +1,12 @@
 import Main from "../layout/Main";
-import SeeAnswer from "../layout/SeeAnswer";
+import QALayout from "../layout/QALayout";
 import Home from "../pages/Home/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
 import QuestionsAnswers from "../pages/QuestionsAnswers/QuestionsAnswers";
 import ErrorPage from "../layout/ErrorPage";
 import QADetails from "../pages/QA/QADetails/QADetails";
 import AskQuestion from "../pages/QA/AskQuestion/AskQuestion";
+import DisplayAnswerLayout from "../layout/DisplayAnswerLayout";
 
 const router = createBrowserRouter([
     {
@@ -18,24 +19,36 @@ const router = createBrowserRouter([
             }
         ]
     },
+
+    // QALayout
     {
         path: "qa/",
-        element: <SeeAnswer />,
+        element: <QALayout />,
         children: [
             {
-                path: 'see-answer',
+                path: 'display-qa',
                 element: <QuestionsAnswers />
             },
             {
                 path: 'ask-question',
                 element: <AskQuestion />
             },
+
+        ]
+    },
+
+    // DisplayAnswerLayout
+    {
+        path: 'display-answer/',
+        element: <DisplayAnswerLayout />,
+        children: [
             {
-                path: 'see-answer/:id',
+                path: 'details/:id',
                 element: <QADetails />,
                 loader: ({ params }) => fetch(`https://question-answer-server.vercel.app/qa-details/${params.id}`)
             },
         ]
+
     },
     {
         path: '*',

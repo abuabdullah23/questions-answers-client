@@ -4,6 +4,7 @@ import QACard from '../../components/QACard/QACard';
 import Loader from '../../components/Loader/Loader';
 import { useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import CategoryHeaderSmall from '../../components/CategoryHeader/CategoryHeaderSmall';
 
 const QuestionsAnswers = () => {
     const [loading, setLoading] = useState(false)
@@ -47,35 +48,39 @@ const QuestionsAnswers = () => {
         <>
             {questions && questions.length > 0 ?
 
-                <div>
-                    <div className='flex items-center justify-between'>
-                        <div>
-                            <p>{category && category}
-                                {category === 'সকল প্রশ্নোত্তর'
-                                    ? <><span className='font-sutonnyMJ'> {': '}{questionsAnswers.length}</span></>
-                                    : category ?
-                                    <><span className='font-sutonnyMJ'> {': '}{questionsAnswers.filter(qa => qa.category === category).length}</span></>
-                                    :
-                                    <></>
-                                }
-                            </p>
+                <>
+                    <CategoryHeaderSmall />
+                    <div className='mb-16 md:ps-5 pb-5 pt-2'>
+                        <div className='flex items-center justify-between'>
+                            <div>
+                                <p>{category && category}
+                                    {category === 'সকল প্রশ্নোত্তর'
+                                        ? <><span className='font-sutonnyMJ'> {': '}{questionsAnswers.length}</span></>
+                                        : category ?
+                                            <><span className='font-sutonnyMJ'> {': '}{questionsAnswers.filter(qa => qa.category === category).length}</span></>
+                                            :
+                                            <></>
+                                    }
+                                </p>
+                            </div>
+                            <div className='flex items-center justify-end gap-4 pe-3'>
+                                <IoList className='w-6 h-6' />
+                                <IoGridOutline className='w-5 h-5' />
+                            </div>
                         </div>
-                        <div className='flex items-center justify-end gap-4 pe-3'>
-                            <IoList className='w-6 h-6' />
-                            <IoGridOutline className='w-5 h-5' />
-                        </div>
-                    </div>
-                    <hr className='my-2 border-t-2 border-[#ececec]' />
+                        <hr className='my-2 border-t-2 border-[#ececec]' />
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                        {
-                            questions.map(qa => <QACard
-                                key={qa._id}
-                                qa={qa}
-                            ></QACard>)
-                        }
-                    </div>
-                </div >
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                            {
+                                questions.map((qa, index) => <QACard
+                                    key={qa._id}
+                                    qa={qa}
+                                    index={index}
+                                />)
+                            }
+                        </div>
+                    </div >
+                </>
                 :
                 <div className='my-24 flex items-center justify-center'>
                     <div>
