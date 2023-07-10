@@ -12,14 +12,24 @@ const Navbar = () => {
     const navOptions =
         <div className='md:flex items-center'>
             <li> <ActiveLink to="/">হোম</ActiveLink></li>
-            <li> <ActiveLink to="/activity">কার্যক্রম</ActiveLink></li>
+            {/* <li> <ActiveLink to="/activity">কার্যক্রম</ActiveLink></li>
             <li> <ActiveLink to="/media">মিডিয়া</ActiveLink></li>
-            <li> <ActiveLink to="/publication">প্রকাশনা</ActiveLink></li>
-            <li> <ActiveLink to="/qa/ask-question">প্রশ্ন করুন</ActiveLink></li>
+            <li> <ActiveLink to="/publication">প্রকাশনা</ActiveLink></li> */}
+            {/* <li>
+                <details className="dropdown">
+                    <summary>প্রশ্নোত্তর</summary>
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                        <li><ActiveLink to="/qa/ask-question">প্রশ্ন করুন</ActiveLink></li>
+                        <li><ActiveLink to="/qa/display-qa">প্রশ্নের উত্তর দেখুন</ActiveLink></li>
+                        <li><Link>প্রশ্নসমূহ</Link></li>
+                    </ul>
+                </details>
+            </li> */}
+            <li><ActiveLink to="/qa/ask-question">প্রশ্ন করুন</ActiveLink></li>
             <li> <ActiveLink to="/qa/display-qa">প্রশ্নের উত্তর দেখুন</ActiveLink></li>
             <li> <ActiveLink to="/aboutUs">আমাদের সম্পর্কে</ActiveLink></li>
-            <li> <ActiveLink to="/donate">দান করুন</ActiveLink></li>
-            <li> <ActiveLink to="/communicate">যোগাযোগ</ActiveLink></li>
+            {/* <li> <ActiveLink to="/donate">দান করুন</ActiveLink></li>
+            <li> <ActiveLink to="/communicate">যোগাযোগ</ActiveLink></li> */}
         </div>
 
     return (
@@ -27,17 +37,17 @@ const Navbar = () => {
             <div className='pt-2 border-b[1px]'>
                 <Container>
                     <div className='flex items-center justify-between text-neutral-600'>
-                        <div className="navbar">
+                        <div className="navbar m-0 p-0 w-fit">
                             <div className="dropdown">
                                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                                 </label>
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-52 text-black uppercase">
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-56 sm:w-[860px] text-black">
                                     {navOptions}
                                 </ul>
                             </div>
-                            <Link to="/">
-                                <img src={logo} className='h-12 w-12 bg-white p-1 rounded-sm' alt="Logo Image" />
+                            <Link to="/" className='w-12'>
+                                <img src={logo} className='bg-white p-1 rounded-sm' alt="Logo Image" />
                             </Link>
                         </div>
 
@@ -51,7 +61,7 @@ const Navbar = () => {
                             {user ? <>
                                 <div className='flex items-center gap-3 justify-end text-[#005492]'>
                                     {isAdmin ? <></> :
-                                        <Link to='/dashboard/my-selected-classes'
+                                        <Link to='/dashboard'
                                             className='mr-4 pt-2 block sm:block md:hidden'>
                                         </Link>}
                                     {/* for night mode */}
