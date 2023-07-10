@@ -24,7 +24,7 @@ const SeeAnswer = () => {
 
     return (
         <div className='font-kalpurush'>
-            <div className='hidden md:block'>
+            <div>
                 <Navbar />
             </div>
             <div className='md:pt-24 text-white text-center font-bold text-3xl qa-bg h-16 md:h-full'>
@@ -35,7 +35,7 @@ const SeeAnswer = () => {
                 <div>
                     {
                         category
-                            ? <div className='flex items-center justify-center w-full h-32 md:h-56 text-3xl md:text-6xl bg-[#005492] text-white mb-3'><p>{category}</p></div>
+                            ? <div className='flex items-center justify-center w-full h-16 md:h-32 text-3xl md:text-6xl bg-[#005492] text-white mb-3 pt-2'><p>{category}</p></div>
                             :
                             <QASliderSection />
                     }
@@ -54,12 +54,16 @@ const SeeAnswer = () => {
 
                         <div className="drawer-content flex flex-col justify-start relative">
                             {/* Page content here */}
-                            <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden md:m-4 md:hidden absolute mt-2 left-2 text-white">
+                            <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden md:m-4 md:hidden absolute mt-3 left-2 text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current md:hidden"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
 
 
-                            <div className='text-center w-full bg-[#005492] text-white text-2xl py-2'>প্রশ্নোত্তর</div>
+                            <div className='text-center w-full bg-[#005492] text-white text-2xl py-2'>
+                                {
+                                    category ? category : 'প্রশ্নোত্তর'
+                                }                                
+                                </div>
                             <div className='md:ps-5 pb-5 pt-2'>
                                 <Outlet />
                             </div>
@@ -75,9 +79,11 @@ const SeeAnswer = () => {
                                 {/* Sidebar content here */}
 
                                 <div className='w-full flex flex-col'>
-                                    <Link to='/' className='text-lg my-2 ps-4'>
+                                    <Link to='/' className='text-lg text-[#003e6b] hover:font-bold my-2 ps-4'>
                                         হোম
                                     </Link>
+                                    <hr className='border-t-2 border-neutral-300'/>
+
                                     {
                                         categories.map(category => <SingleCategory
                                             key={category._id}

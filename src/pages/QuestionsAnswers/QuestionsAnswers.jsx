@@ -47,10 +47,23 @@ const QuestionsAnswers = () => {
         <>
             {questions && questions.length > 0 ?
 
-                < div >
-                    <div className='flex items-center justify-end gap-4 pe-3'>
-                        <IoList className='w-6 h-6' />
-                        <IoGridOutline className='w-5 h-5' />
+                <div>
+                    <div className='flex items-center justify-between'>
+                        <div>
+                            <p>{category && category}
+                                {category === 'সকল প্রশ্নোত্তর'
+                                    ? <><span className='font-sutonnyMJ'> {': '}{questionsAnswers.length}</span></>
+                                    : category ?
+                                    <><span className='font-sutonnyMJ'> {': '}{questionsAnswers.filter(qa => qa.category === category).length}</span></>
+                                    :
+                                    <></>
+                                }
+                            </p>
+                        </div>
+                        <div className='flex items-center justify-end gap-4 pe-3'>
+                            <IoList className='w-6 h-6' />
+                            <IoGridOutline className='w-5 h-5' />
+                        </div>
                     </div>
                     <hr className='my-2 border-t-2 border-[#ececec]' />
 
