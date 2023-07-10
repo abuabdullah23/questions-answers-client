@@ -5,7 +5,7 @@ const QACard = ({ qa }) => {
     const { _id, Number, question, answer, category, date } = qa;
     return (
         <>
-            <Link to={`/qa/qa-details/${_id}`}>
+            <Link to={`/qa/see-answer/${_id}`}>
                 <div className='rounded-md border-2 border-neutral-200 hover:border-[#005492] bg-neutral-50 text-neutral-600'>
                     <div className='bg-neutral-200 rounded-t-md w-full h-36 flex items-center justify-center text-center py-2 px-4'>
                         <div>

@@ -15,7 +15,7 @@ const SeeAnswer = () => {
     // for show selected category in the top of page
     const [params, setParams] = useSearchParams();
     const category = params.get('category');
-    console.log(category);
+    // console.log(category);
 
     const { data: categories = [], refetch } = useQuery(['categories'], async () => {
         const res = await axios.get('https://question-answer-server.vercel.app/categories')
@@ -35,7 +35,7 @@ const SeeAnswer = () => {
                 <div>
                     {
                         category
-                            ? <div className='flex items-center justify-center w-full h-16 md:h-32 text-3xl md:text-6xl bg-[#005492] text-white mb-3 pt-2'><p>{category}</p></div>
+                            ? <div className='flex items-center justify-center w-full h-8 md:h-16 text-xl md:text-3xl bg-[#005492] text-white mb-3 pt-2 sticky top-[72px] z-10'><p>{category}</p></div>
                             :
                             <QASliderSection />
                     }
@@ -61,16 +61,16 @@ const SeeAnswer = () => {
 
                             <div className='text-center w-full bg-[#005492] text-white text-2xl py-2'>
                                 {
-                                    category ? category : 'প্রশ্নোত্তর'
-                                }                                
-                                </div>
+                                    category ? `প্রশ্নোত্তর/${category}` : 'প্রশ্নোত্তর'
+                                }
+                            </div>
                             <div className='md:ps-5 pb-5 pt-2'>
                                 <Outlet />
                             </div>
                         </div>
 
                         <div className="drawer-side h-screen p-0 m-0">
-                            <div className='text-center bg-[#003e6b] text-white text-xl pt-3 pb-2 hidden md:block'>ক্যাটাগরি</div>
+                            <div className='text-center bg-[#003e6b] text-white text-xl pt-3 pb-2 hidden md:block '>ক্যাটাগরি</div>
 
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                             {/* md:fixed md:top-0 */}
@@ -82,7 +82,7 @@ const SeeAnswer = () => {
                                     <Link to='/' className='text-lg text-[#003e6b] hover:font-bold my-2 ps-4'>
                                         হোম
                                     </Link>
-                                    <hr className='border-t-2 border-neutral-300'/>
+                                    <hr className='border-t-2 border-neutral-300' />
 
                                     {
                                         categories.map(category => <SingleCategory

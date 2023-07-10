@@ -31,7 +31,7 @@ const router = createBrowserRouter([
                 element: <AskQuestion />
             },
             {
-                path: 'qa-details/:id',
+                path: 'see-answer/:id',
                 element: <QADetails />,
                 loader: ({ params }) => fetch(`https://question-answer-server.vercel.app/qa-details/${params.id}`)
             },
