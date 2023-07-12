@@ -13,7 +13,7 @@ const QADetails = () => {
                     category ? `প্রশ্নোত্তর/${category}` : 'প্রশ্নোত্তর'
                 }
             </div>
-            <div className='mb-16 md:ps-5 pb-5 pt-2'>
+            <div className='mb-16 md:px-5 pb-5 pt-2'>
 
                 <BackButton />
 
@@ -24,7 +24,7 @@ const QADetails = () => {
                 </div>
 
                 <div className='text-[#005492]'>
-                    <p className='text-lg'>{question}</p>
+                    <p className='text-lg text-justify'>{question}</p>
                 </div>
 
 
@@ -34,7 +34,7 @@ const QADetails = () => {
                     <hr className='border-t-2 border-neutral-400 w-40 text-center' />
                 </div>
                 <div className='text-neutral-600'>
-                    <p className='text-lg'>{answer.slice(7,)}</p>
+                    <p className='text-lg text-justify'>{answer.slice(7,)}</p>
                 </div>
 
 
