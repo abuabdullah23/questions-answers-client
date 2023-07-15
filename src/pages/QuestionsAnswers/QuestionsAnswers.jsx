@@ -13,6 +13,19 @@ const QuestionsAnswers = () => {
     const category = params.get('category');
     // console.log(category, params)
 
+    // for handle toggle use to list and grid view
+    const [toggle, setToggle] = useState(false)
+
+    const [isActive, setActive] = useState('false')
+    const toggleHandler = event => {
+        setToggle(event.target.checked)
+    }
+
+    // Sidebar Responsive Handler
+    const handleToggle = () => {
+        setActive(!isActive)
+    }
+
     const { data: questionsAnswers = [], isLoading, isError } = useQuery(['questionsAnswers', category], async () => {
         setLoading(true);
         // console.log(questionsAnswers)
@@ -64,18 +77,42 @@ const QuestionsAnswers = () => {
                                 </p>
                             </div>
                             <div className='flex items-center justify-end gap-4 pe-3'>
-                                <IoList className='w-6 h-6' />
-                                <IoGridOutline className='w-5 h-5' />
+                                <label
+                                    htmlFor='Toggle3'
+                                    className='inline-flex w-full justify-center items-center px-2 rounded-md cursor-pointer text-gray-800'
+                                >
+                                    <input
+                                        onChange={toggleHandler}
+                                        id='Toggle3'
+                                        type='checkbox'
+                                        className='hidden peer'
+                                    />
+                                    <span className='px-4 py-1 rounded-l bg-[#005492] peer-checked:bg-gray-300 text-white'>
+                                        <IoGridOutline className='w-5 h-5' />
+                                    </span>
+                                    <span className='px-4 py-1 rounded-r bg-gray-300 peer-checked:bg-[#005492] text-white'>
+                                        <IoList className='w-5 h-5' />
+                                    </span>
+                                </label>
+
                             </div>
                         </div>
                         <hr className='my-2 border-t-2 border-[#ececec]' />
 
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                        <div className=
+                            {
+                                toggle
+                                    ? 'grid grid-cols-1 gap-5'
+                                    : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'
+
+                            }
+                        >
                             {
                                 questions.map((qa, index) => <QACard
                                     key={qa._id}
                                     qa={qa}
                                     index={index}
+                                    toggle={toggle}
                                 />)
                             }
                         </div>
