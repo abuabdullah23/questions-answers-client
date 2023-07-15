@@ -4,7 +4,7 @@ import BackButton from '../../../components/Buttons/BackButton';
 
 const QADetails = () => {
     const qADetails = useLoaderData();
-    const { _id, Number, question, answer, category } = qADetails;
+    const { _id, Number, question, answer, category, date } = qADetails;
 
     return (
         <>
@@ -24,7 +24,8 @@ const QADetails = () => {
                 </div>
 
                 <div className='text-[#005492]'>
-                    <p className='text-lg text-justify'>{question}</p>
+                    <p className='text-xl text-justify'>{question}</p>
+                    <p className='border-t-2 border-neutral-100 text-neutral-400 mt-5 w-fit'> ‍<span className='font-sutonnyMJ'>{date}</span> ঈসায়ী</p>
                 </div>
 
 
@@ -33,8 +34,8 @@ const QADetails = () => {
                 <div className='text-center flex justify-center mb-4'>
                     <hr className='border-t-2 border-neutral-400 w-40 text-center' />
                 </div>
-                <div className='text-neutral-600'>
-                    <p className='text-lg text-justify'>{answer.slice(7,)}</p>
+                <div className='text-neutral-500'>
+                    <p className='text-xl text-justify'>{answer.slice(7,)}</p>
                 </div>
 
 

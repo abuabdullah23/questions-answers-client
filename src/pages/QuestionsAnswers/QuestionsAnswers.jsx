@@ -119,10 +119,10 @@ const QuestionsAnswers = () => {
                     </div >
                 </>
                 :
-                <div className='my-24 flex items-center justify-center'>
-                    <div>
-                        <h2>দুঃখিত! এই ক্যাটাগরির কোনো প্রশ্ন পাওয়া যায়নি।</h2>
-                        <p>দয়া করে অন্য ক্যাটাগরি সিলেক্ট করুন। ধন্যবাদ!</p>
+                <div className='my-24 text-2xl flex items-center justify-center'>
+                    <div className='text-center'>
+                        <h2><span className='text-red-500'>দুঃখিত!</span> এই ক্যাটাগরির কোনো প্রশ্ন পাওয়া যায়নি।</h2>
+                        <p>দয়া করে অন্য ক্যাটাগরি সিলেক্ট করুন। <span className='text-green-600'>ধন্যবাদ!</span></p>
                     </div>
                 </div>
             }
