@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { useSearchParams, useNavigate } from 'react-router-dom';
 
-const SingleCategory = ({ category }) => {
+const SingleCategory = ({ category, selected }) => {
 
     const [params, setParams] = useSearchParams();
     const navigate = useNavigate();
@@ -32,7 +32,9 @@ const SingleCategory = ({ category }) => {
         <>
             <div
                 onClick={handleClick}
-                className='hover:bg-[#003983] hover:text-white cursor-pointer py-2 ps-4 text-lg'>
+                className={`hover:bg-[#003983] hover:text-white cursor-pointer py-2 ps-4 text-lg transition hover:scale-105
+                ${selected ? 'bg-[#003983] text-white' : 'text-neutral-500'}
+                `}>
                 <Link>{category.category}</Link>
             </div>
         </>

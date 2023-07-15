@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import SingleCategory from './SingleCategory';
 
 const Categories = () => {
@@ -9,6 +9,10 @@ const Categories = () => {
         const res = await axios.get('https://question-answer-server.vercel.app/categories')
         return res.data;
     })
+
+    // for active category
+    const [params, setParams] = useSearchParams()
+    const selectedCategory = params.get('category')
 
     return (
         <>
@@ -30,6 +34,7 @@ const Categories = () => {
                         categories.map(category => <SingleCategory
                             key={category._id}
                             category={category}
+                            selected ={selectedCategory === category.category}
                         >
                         </SingleCategory>)
                     }
