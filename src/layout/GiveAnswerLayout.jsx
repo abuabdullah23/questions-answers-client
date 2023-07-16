@@ -24,7 +24,7 @@ const GiveAnswerLayout = () => {
 
                     <div className="drawer-content flex flex-col justify-start relative">
                         {/* Page content here */}
-                        <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden md:m-4 md:hidden absolute mt-3 left-2 text-white">
+                        <label htmlFor="my-drawer-2" className=" drawer-button hidden lg:hidden md:m-4 md:hidden absolute mt-3 left-2 text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current md:hidden"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
 

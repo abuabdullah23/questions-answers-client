@@ -16,7 +16,7 @@ const QALayout = () => {
             <QuestionsAnswersBanner bannerText={'প্রশ্নোত্তর'} />
             <Container>
                 <CategoryHeader />
-                <SearchQA placeholderText={'প্রশ্নোত্তর খুঁজুন...'}/>
+                <SearchQA placeholderText={'প্রশ্নোত্তর খুঁজুন...'} />
                 {/* Content Here */}
                 <div className="drawer md:drawer-open">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

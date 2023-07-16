@@ -68,7 +68,7 @@ const AskQuestionForm = () => {
 
     return (
         <>
-            <div className='text-center w-full bg-[#005492] text-white text-xl pt-3 pb-2 sticky top-[72px] z-10'>
+            <div className='text-center w-full bg-[#005492] text-white text-xl pt-3 pb-2'>
                 অনুগ্রহ পূর্বক নিচের ফর্মটি পূরণ করুন
             </div>
             <div className='mb-16 md:ps-5 pb-5 pt-2 mt-8'>
