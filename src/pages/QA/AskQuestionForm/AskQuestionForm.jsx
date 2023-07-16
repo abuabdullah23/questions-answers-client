@@ -40,7 +40,7 @@ const AskQuestionForm = () => {
             <div className='text-center w-full bg-[#005492] text-white text-xl pt-3 pb-2 sticky top-[72px] z-10'>
                 অনুগ্রহ পূর্বক নিচের ফর্মটি পূরণ করুন
             </div>
-            <div className='mb-16 md:px-5 pb-5 pt-2 mt-8'>
+            <div className='mb-16 md:ps-5 pb-5 pt-2 mt-8'>
                 <form onSubmit={handleSendQuestion}>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-lg'>
                         <label>
