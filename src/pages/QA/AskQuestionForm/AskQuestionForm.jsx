@@ -1,15 +1,16 @@
 import React from 'react';
 
-const AskQuestion = () => {
+const AskQuestionForm = () => {
     return (
-        <div>
+        <div className='mb-16 md:px-5 pb-5 pt-2'>
             {/* TODO: install 
             https://www.npmjs.com/package/react-quill
             https://www.npmjs.com/package/jodit-react
             */}
-            প্রশ্ন করুন
+            ফরম
+            
         </div>
     );
 };
 
-export default AskQuestion;
+export default AskQuestionForm;

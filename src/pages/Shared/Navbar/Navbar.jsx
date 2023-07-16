@@ -25,7 +25,7 @@ const Navbar = () => {
                     </ul>
                 </details>
             </li> */}
-            <li><ActiveLink to="/qa/ask-question">প্রশ্ন করুন</ActiveLink></li>
+            <li><ActiveLink to="/ask-question/question-form">প্রশ্ন করুন</ActiveLink></li>
             <li> <ActiveLink to="/qa/display-qa">প্রশ্নের উত্তর দেখুন</ActiveLink></li>
             <li> <ActiveLink to="/aboutUs">আমাদের সম্পর্কে</ActiveLink></li>
             {/* <li> <ActiveLink to="/donate">দান করুন</ActiveLink></li>

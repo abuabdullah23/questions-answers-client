@@ -1,22 +1,22 @@
 import React from 'react';
 import Navbar from '../pages/Shared/Navbar/Navbar';
-import Footer from '../pages/Shared/Footer/Footer';
 import Container from '../components/Container/Container';
 import SearchQA from '../components/SearchQA/SearchQA';
 import QuestionsAnswersBanner from '../components/ProshnottorBanner/QuestionsAnswersBanner';
 import { Outlet } from 'react-router-dom';
 import Categories from '../components/Categories/Categories';
 
-const DisplayAnswerLayout = () => {
+
+const AskQuestionLayout = () => {
     return (
         <div className='font-kalpurush'>
             <Navbar />
-            <QuestionsAnswersBanner bannerText={'প্রশ্নত্তোর'}/>
+            <QuestionsAnswersBanner bannerText={'প্রশ্ন করুন'} />
             <Container>
-
                 <div className='mt-3'>
-                    <SearchQA placeholderText={'প্রশ্নোত্তর খুঁজুন...'}/>
+                    <SearchQA placeholderText={'আপনি যে প্রশ্নটি করতে চাচ্ছেন সেটার উত্তর দেয়া হয়েছে কি না, সার্চ করে দেখে নিন।'} />
                 </div>
+
                 {/* Content Here */}
                 <div className="drawer md:drawer-open">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -36,9 +36,9 @@ const DisplayAnswerLayout = () => {
                     </div>
                 </div>
             </Container>
-            <Footer />
+
         </div>
     );
 };
 
-export default DisplayAnswerLayout;
+export default AskQuestionLayout;

@@ -5,8 +5,10 @@ import { createBrowserRouter } from "react-router-dom";
 import QuestionsAnswers from "../pages/QuestionsAnswers/QuestionsAnswers";
 import ErrorPage from "../layout/ErrorPage";
 import QADetails from "../pages/QA/QADetails/QADetails";
-import AskQuestion from "../pages/QA/AskQuestion/AskQuestion";
+import AskQuestion from "../pages/QA/AskQuestionForm/AskQuestionForm";
 import DisplayAnswerLayout from "../layout/DisplayAnswerLayout";
+import AskQuestionLayout from "../layout/AskQuestionLayout";
+import AskQuestionForm from "../pages/QA/AskQuestionForm/AskQuestionForm";
 
 const router = createBrowserRouter([
     {
@@ -29,10 +31,6 @@ const router = createBrowserRouter([
                 path: 'display-qa',
                 element: <QuestionsAnswers />
             },
-            {
-                path: 'ask-question',
-                element: <AskQuestion />
-            },
 
         ]
     },
@@ -49,6 +47,17 @@ const router = createBrowserRouter([
             },
         ]
 
+    },
+    // Ask Question Layout
+    {
+        path: 'ask-question/',
+        element: <AskQuestionLayout />,
+        children: [
+            {
+                path: 'question-form',
+                element: <AskQuestionForm/>
+            },
+        ]
     },
     {
         path: '*',

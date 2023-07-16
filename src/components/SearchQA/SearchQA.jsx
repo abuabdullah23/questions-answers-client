@@ -1,13 +1,14 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { FiSearch } from 'react-icons/fi';
 
-const SearchQA = () => {
+const SearchQA = ({ placeholderText }) => {
     return (
         <div className='flex items-center justify-between mb-3'>
-            <input type="text" className='py-3 px-4 w-full bg-neutral-200' placeholder='প্রশ্নোত্তর খুঁজুন...' />
-            <div className='text-white bg-[#005492] py-3 px-4'>
-                <FaSearch className='w-6 h-full'></FaSearch>
-            </div>
+            <input type="text" className='py-3 px-4 w-full bg-neutral-200'
+                placeholder={placeholderText} />
+            <button className='text-white bg-[#005492] hover:bg-[#006fbe] py-3 px-4'>
+                < FiSearch className='w-6 h-full' />
+            </button>
         </div>
     );
 };
