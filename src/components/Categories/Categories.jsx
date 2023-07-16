@@ -6,7 +6,7 @@ import SingleCategory from './SingleCategory';
 
 const Categories = () => {
     const { data: categories = [], refetch } = useQuery(['categories'], async () => {
-        const res = await axios.get('https://question-answer-server.vercel.app/categories')
+        const res = await axios.get(`${import.meta.env.VITE_BASE_URL_API}/categories`)
         return res.data;
     })
 
