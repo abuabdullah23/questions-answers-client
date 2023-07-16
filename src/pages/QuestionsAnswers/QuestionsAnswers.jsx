@@ -30,7 +30,7 @@ const QuestionsAnswers = () => {
         setLoading(true);
         // console.log(questionsAnswers)
         try {
-            const response = await fetch('https://question-answer-server.vercel.app/questions-answers');
+            const response = await fetch(`${import.meta.env.VITE_BASE_URL_API}/questions-answers`);
             const data = await response.json();
 
             if (category === 'সকল প্রশ্নোত্তর') {
@@ -144,7 +144,7 @@ export default QuestionsAnswers;
 
 
 // const { data: questionsAnswers = [], refetch } = useQuery(['qa'], async () => {
-//     const res = await axios.get('https://question-answer-server.vercel.app/questions-answers');
+//     const res = await axios.get(`${import.meta.env.VITE_BASE_URL_API}/questions-answers`);
 //     setQuestions(questionsAnswers)
 //     return res.data;
 // })
@@ -159,7 +159,7 @@ export default QuestionsAnswers;
 // fetch data with useEffect
 // useEffect(() => {
 //     setLoading(true)
-//     fetch('https://question-answer-server.vercel.app/questions-answers')
+//     fetch(`${import.meta.env.VITE_BASE_URL_API}/questions-answers`)
 //         .then(res => res.json())
 //         .then(data => {
 //             if (category === 'সকল প্রশ্নোত্তর') {
@@ -179,7 +179,7 @@ export default QuestionsAnswers;
     //     queryKey: ['questionsAnswers', category],
     //     queryFn: () => {
     //         setLoading(true);
-    //         fetch('https://question-answer-server.vercel.app/questions-answers')
+    //         fetch(`${import.meta.env.VITE_BASE_URL_API}/questions-answers`)
     //             .then(res => res.json())
     //             .then(data => {
     //                 if (category === 'সকল প্রশ্নোত্তর') {

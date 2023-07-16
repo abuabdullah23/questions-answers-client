@@ -8,6 +8,9 @@ import QADetails from "../pages/QA/QADetails/QADetails";
 import DisplayAnswerLayout from "../layout/DisplayAnswerLayout";
 import AskQuestionLayout from "../layout/AskQuestionLayout";
 import AskQuestionForm from "../pages/QA/AskQuestionForm/AskQuestionForm";
+import AllPendingQuestions from "../pages/AdminPages/AllPendingQuestions/AllPendingQuestions";
+import GiveAnswerLayout from "../layout/GiveAnswerLayout";
+import { getAllQuestions } from "../components/api/questions";
 
 const router = createBrowserRouter([
     {
@@ -42,7 +45,7 @@ const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 element: <QADetails />,
-                loader: ({ params }) => fetch(`https://question-answer-server.vercel.app/qa-details/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_BASE_URL_API}/qa-details/${params.id}`)
             },
         ]
 
@@ -54,7 +57,20 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'question-form',
-                element: <AskQuestionForm/>
+                element: <AskQuestionForm />
+            },
+        ]
+    },
+
+    // Give Answer Layout
+    {
+        path: 'give-answer/',
+        element: <GiveAnswerLayout />,
+        children: [
+            {
+                path: 'see-all-questions',
+                element: <AllPendingQuestions />,
+                loader: () => getAllQuestions(),
             },
         ]
     },

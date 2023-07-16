@@ -19,6 +19,9 @@ const AskQuestionForm = () => {
     // for jodit form
     const editor = useRef(null);
     const [content, setContent] = useState('');
+    // const config = {
+    //     placeholder: 'আপনার প্রশ্নটি লিখুন...'
+    // }
 
     const handleSendQuestion = event => {
         event.preventDefault();
@@ -34,7 +37,7 @@ const AskQuestionForm = () => {
             mobileNumber,
             question: content,
             category,
-            data: new Date()
+            date: new Date()
         };
 
         setUploadButtonText(`পাঠানো হচ্ছে...`)
@@ -109,6 +112,7 @@ const AskQuestionForm = () => {
                         <JoditEditor
                             ref={editor}
                             value={content}
+                            // config={config}
                             tabIndex={1} // tabIndex of textarea
                             onBlur={newContent => setContent(newContent)}
                             onChange={newContent => setContent(newContent)}

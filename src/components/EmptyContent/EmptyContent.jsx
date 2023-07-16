@@ -1,6 +1,6 @@
 import emptyBox from '../../assets/images/empty/empty-box.png'
 
-const EmptyContent = () => {
+const EmptyContent = ({emptyText}) => {
     return (
         <div className='md:p-28 p-10 flex items-center justify-center'>
             <div>
