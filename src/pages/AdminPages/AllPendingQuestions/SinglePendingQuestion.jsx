@@ -1,5 +1,4 @@
 import React from 'react';
-import EmptyContent from '../../../components/EmptyContent/EmptyContent';
 import FormattedText from '../../../components/FormattedText/FormattedText';
 import moment from 'moment/moment';
 import { Link } from 'react-router-dom';
@@ -34,7 +33,9 @@ const SinglePendingQuestion = ({ questions, index }) => {
                     </div>
 
                     <div className='my-2'>
-                        <Link className='py-2 px-4 rounded-md md:border-l-2 border-[#005492] bg-neutral-200 hover:bg-[#005492] hover:text-white'>
+                        <Link
+                            to={`/give-answer/write-answer/${_id}`}
+                            className='py-2 px-4 rounded-md border-l-2 border-[#005492] bg-neutral-200 hover:bg-[#005492] hover:text-white'>
                             উত্তর দিন
                         </Link>
                     </div>

@@ -18,3 +18,10 @@ export const getAllQuestions = async () => {
     const data = await response.json();
     return data;
 }
+
+// get single Question
+export const getSingleQuestion = async (id) => {
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL_API}/question/${id}`)
+    const data = await response.json();
+    return data;
+}

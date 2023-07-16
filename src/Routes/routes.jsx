@@ -10,7 +10,8 @@ import AskQuestionLayout from "../layout/AskQuestionLayout";
 import AskQuestionForm from "../pages/QA/AskQuestionForm/AskQuestionForm";
 import AllPendingQuestions from "../pages/AdminPages/AllPendingQuestions/AllPendingQuestions";
 import GiveAnswerLayout from "../layout/GiveAnswerLayout";
-import { getAllQuestions } from "../components/api/questions";
+import { getAllQuestions, getSingleQuestion } from "../components/api/questions";
+import WriteAnswer from "../pages/AdminPages/WriteAnswer/WriteAnswer";
 
 const router = createBrowserRouter([
     {
@@ -71,6 +72,11 @@ const router = createBrowserRouter([
                 path: 'see-all-questions',
                 element: <AllPendingQuestions />,
                 loader: () => getAllQuestions(),
+            },
+            {
+                path: 'write-answer/:id',
+                element: <WriteAnswer />,
+                loader: ({ params }) => getSingleQuestion(params.id)
             },
         ]
     },
