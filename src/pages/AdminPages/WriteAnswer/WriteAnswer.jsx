@@ -7,7 +7,8 @@ import moment from 'moment';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import CategoryOption from '../../QA/AskQuestionForm/CategoryOption';
-import { getAllAnswers } from '../../../components/api/answers';
+import { getAllAnswers, saveAnswer } from '../../../components/api/answers';
+import Swal from 'sweetalert2';
 
 
 const WriteAnswer = () => {
@@ -25,6 +26,7 @@ const WriteAnswer = () => {
     const [userQuestion, setUserQuestion] = useState('');
     const [answer, setAnswer] = useState('');
 
+    console.log(userQuestion)
     // handle answer submit
     const handleSubmitAnswer = (event) => {
         event.preventDefault();
@@ -46,6 +48,21 @@ const WriteAnswer = () => {
                     date: new Date()
                 }
                 console.log(answerData)
+                saveAnswer(answerData)
+                    .then(data => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Alhamdulillah...',
+                            text: 'Answer has been sent.',
+                        })
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Sorry...',
+                            text: `${error.message}, Try again.`,
+                        })
+                    })
             })
     }
 
@@ -74,7 +91,7 @@ const WriteAnswer = () => {
                     value={question}
                     tabIndex={1} // tabIndex of textarea
                     onBlur={newContent => setUserQuestion(newContent)}
-                // onChange={newContent => setUserQuestion(newContent)}
+                    onChange={newContent => setUserQuestion(newContent)}
                 />
 
                 {/* Write Answer Section */}

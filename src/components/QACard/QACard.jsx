@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom'
+import FormattedText from '../FormattedText/FormattedText';
 
 const QACard = ({ qa, index, toggle }) => {
     const { _id, number, question, answer, category, date } = qa;
@@ -12,14 +13,18 @@ const QACard = ({ qa, index, toggle }) => {
                         <div className='py-2'>
                             {/* Number.slice(11,) */}
                             <h4 className='font-bold text-2xl'>প্রশ্ন: <span className='text-3xl font-sutonnyMJ'>{number}</span></h4>
-                            <p className='mt-2 text-lg text-justify'>প্রশ্ন: {toggle ? question.slice(0, 100) : question.slice(0, 45)}...</p>
+                            <span className='mt-2 text-lg'>
+                                <FormattedText htmlContent={toggle ? `${question.slice(0, 100)}...` : `${question.slice(0, 45)}...`} />
+                            </span>
                         </div>
                     </div>
                     <div className='mt-1 px-2 pb-1'>
                         <p> <span className='font-sans'>
                             {moment(date).format("MMMM D, YYYY")}
                         </span></p>
-                        <p className='text-justify'>উত্তর: {toggle ? answer.slice(0, 200) : answer.slice(0, 65)}...</p>
+                        <span className='text-justify'>
+                            <FormattedText htmlContent={toggle ? `${answer.slice(0, 200)}...` : `${answer.slice(0, 65)}...`} />
+                        </span>
                     </div>
                 </div>
             </Link>

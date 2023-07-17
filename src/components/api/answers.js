@@ -1,6 +1,6 @@
 // save answer in server
 export const saveAnswer = async answerData => {
-    const response = await fetch(`${import.meta.env.VITE_BASE_URL_API}questions-answers`, {
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL_API}/questions-answers`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

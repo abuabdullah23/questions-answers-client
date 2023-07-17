@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import BackButton from '../../../components/Buttons/BackButton';
 import moment from 'moment';
+import FormattedText from '../../../components/FormattedText/FormattedText';
 
 const QADetails = () => {
     const qADetails = useLoaderData();
@@ -25,7 +26,9 @@ const QADetails = () => {
                 </div>
 
                 <div className='text-[#005492]'>
-                    <p className='text-xl text-justify'>{question && question}</p>
+                    <div className='text-xl text-justify'>
+                        <FormattedText htmlContent={question && question} />
+                    </div>
                     <p className='border-t-2 border-neutral-100 text-neutral-400 mt-5 w-fit'> <span className='font-sans'>
                         {moment(date).format("MMMM D, YYYY")}
                     </span> ঈসায়ী</p>
@@ -37,8 +40,8 @@ const QADetails = () => {
                 <div className='text-center flex justify-center mb-4'>
                     <hr className='border-t-2 border-neutral-400 w-40 text-center' />
                 </div>
-                <div className='text-neutral-500'>
-                    <p className='text-xl text-justify'>{answer && answer}</p>
+                <div className='text-neutral-500 text-xl text-justify'>
+                    <FormattedText htmlContent={answer && answer} />
                 </div>
 
 
