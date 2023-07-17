@@ -25,45 +25,54 @@ const AskQuestionForm = () => {
 
     const handleSendQuestion = event => {
         event.preventDefault();
-        setLoading(true)
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const mobileNumber = form.mobileNumber.value;
-        const category = form.category.value;
-        const qData = {
-            name,
-            email,
-            mobileNumber,
-            question: content,
-            usersCategory: category,
-            date: new Date()
-        };
-
-        setUploadButtonText(`পাঠানো হচ্ছে...`)
-
-        askQuestion(qData)
-            .then(data => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Alhamdulillah...',
-                    text: 'Your question has been sent. We will try to answer quickly Insha-Allah!',
-                })
-                setLoading(false)
-                setUploadButtonText('পাঠানো হয়েছে, নতুন প্রশ্ন করুন।')
-                event.target.reset('');
-                setContent('')
-                // setUploadButtonText('প্রেরণ করুন')
+        if (content.length < 20) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Wait...',
+                text: 'Write your question at least 20 characters.',
             })
-            .catch(error => {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Sorry...',
-                    text: `${error.message}`,
+        } else {
+            setLoading(true)
+            const form = event.target;
+            const name = form.name.value;
+            const email = form.email.value;
+            const mobileNumber = form.mobileNumber.value;
+            const category = form.category.value;
+            const qData = {
+                name,
+                email,
+                mobileNumber,
+                question: content,
+                usersCategory: category,
+                date: new Date()
+            };
+
+            setUploadButtonText(`পাঠানো হচ্ছে...`)
+
+            askQuestion(qData)
+                .then(data => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Alhamdulillah...',
+                        text: 'Your question has been sent. We will try to answer quickly Insha-Allah!',
+                    })
+                    setLoading(false)
+                    setUploadButtonText('পাঠানো হয়েছে, নতুন প্রশ্ন করুন।')
+                    event.target.reset('');
+                    setContent('')
+                    // setUploadButtonText('প্রেরণ করুন')
                 })
-                setLoading(false)
-                setUploadButtonText('কোনো সমস্যা হয়েছে, আবার চেষ্টা করুন।')
-            })
+                .catch(error => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Sorry...',
+                        text: `${error.message}`,
+                    })
+                    setLoading(false)
+                    setUploadButtonText('কোনো সমস্যা হয়েছে, আবার চেষ্টা করুন।')
+                })
+        }
+
     }
 
     return (
@@ -136,7 +145,6 @@ const AskQuestionForm = () => {
                     </select>
 
                     <button
-                        disabled={content.length < 20}
                         type='submit'
                         className='py-2 px-4 mt-5 bg-[#005492] hover:bg-[#006fbe] text-white'
                     >{uploadButtonText}</button>

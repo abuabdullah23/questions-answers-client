@@ -5,6 +5,10 @@ import FormattedText from '../FormattedText/FormattedText';
 
 const QACard = ({ qa, index, toggle }) => {
     const { _id, number, question, answer, category, date } = qa;
+
+    const formattedQuestion = question.replace(/<\/?[^>]+(>|$)/g, '');
+    const formattedAnswer = answer.replace(/<\/?[^>]+(>|$)/g, '');
+
     return (
         <>
             <Link to={`/display-answer/details/${_id}`}>
@@ -13,7 +17,9 @@ const QACard = ({ qa, index, toggle }) => {
                         <div className='py-2'>
                             {/* Number.slice(11,) */}
                             <h4 className='font-bold text-2xl'>প্রশ্ন: <span className='text-3xl font-sutonnyMJ'>{number}</span></h4>
-                            <span className='mt-2 text-lg'>
+                            <span className='mt-2 text-lg'
+                                title={formattedQuestion}
+                            >
                                 <FormattedText htmlContent={toggle ? `${question.slice(0, 100)}...` : `${question.slice(0, 45)}...`} />
                             </span>
                         </div>
@@ -22,7 +28,9 @@ const QACard = ({ qa, index, toggle }) => {
                         <p> <span className='font-sans'>
                             {moment(date).format("MMMM D, YYYY")}
                         </span></p>
-                        <span className='text-justify'>
+                        <span className='text-justify'
+                            title={formattedAnswer}
+                        >
                             <FormattedText htmlContent={toggle ? `${answer.slice(0, 200)}...` : `${answer.slice(0, 65)}...`} />
                         </span>
                     </div>

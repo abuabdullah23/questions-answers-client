@@ -68,7 +68,7 @@ const SinglePendingQuestion = ({ pendingQuestion, index, fetchQuestions }) => {
                     </div>
                 </div>
 
-                <div className='mt-1 pb-1 px-2 flex justify-between items-center gap-5'>
+                <div className='mt-1 pb-1 px-2 md:flex justify-between items-center gap-5'>
 
                     <div className='md:flex justify-between items-center gap-5'>
                         <div className='font-sans'>
