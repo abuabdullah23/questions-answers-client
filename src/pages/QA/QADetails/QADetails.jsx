@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import BackButton from '../../../components/Buttons/BackButton';
+import moment from 'moment';
 
 const QADetails = () => {
     const qADetails = useLoaderData();
-    const { _id, Number, question, answer, category, date } = qADetails;
+    const { _id, number, question, answer, category, date } = qADetails;
 
     return (
         <>
@@ -18,14 +19,16 @@ const QADetails = () => {
                 <BackButton />
 
                 {/* Question Section */}
-                <h2 className='text-4xl text-center text-[#005492]'>প্রশ্ন <span className='font-sutonnyMJ'>( {Number.slice(11,)} )</span></h2>
+                <h2 className='text-4xl text-center text-[#005492]'>প্রশ্ন : <span className='font-sutonnyMJ'> {number && number} </span></h2>
                 <div className='text-center flex justify-center mb-4'>
                     <hr className='border-t-2 border-neutral-400 w-48 text-center' />
                 </div>
 
                 <div className='text-[#005492]'>
-                    <p className='text-xl text-justify'>{question}</p>
-                    <p className='border-t-2 border-neutral-100 text-neutral-400 mt-5 w-fit'> ‍<span className='font-sutonnyMJ'>{date}</span> ঈসায়ী</p>
+                    <p className='text-xl text-justify'>{question && question}</p>
+                    <p className='border-t-2 border-neutral-100 text-neutral-400 mt-5 w-fit'> <span className='font-sans'>
+                        {moment(date).format("MMMM D, YYYY")}
+                    </span> ঈসায়ী</p>
                 </div>
 
 
@@ -35,7 +38,7 @@ const QADetails = () => {
                     <hr className='border-t-2 border-neutral-400 w-40 text-center' />
                 </div>
                 <div className='text-neutral-500'>
-                    <p className='text-xl text-justify'>{answer.slice(7,)}</p>
+                    <p className='text-xl text-justify'>{answer && answer}</p>
                 </div>
 
 
