@@ -124,7 +124,7 @@ const WriteAnswer = () => {
                         type="text"
                         name="category"
                     >
-                        {categories.slice(1,).map((category) => <CategoryOption
+                        {categories.map((category) => <CategoryOption
                             key={category._id}
                             category={category}
                             className='text-black bg-white'

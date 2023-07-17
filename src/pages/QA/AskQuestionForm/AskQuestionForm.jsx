@@ -16,6 +16,7 @@ const AskQuestionForm = () => {
         return res.data;
     })
 
+    console.log(categories)
     // for jodit form
     const editor = useRef(null);
     const [content, setContent] = useState('');
@@ -102,7 +103,7 @@ const AskQuestionForm = () => {
                         </label>
 
                         <label>
-                            মোবাইল নাম্বার ‍<span className='text-neutral-400'>(optional)</span> <br />
+                            মোবাইল নাম্বার <span className='text-neutral-400'>(optional)</span> <br />
                             <input
                                 name='mobileNumber'
                                 type="number"
@@ -112,8 +113,8 @@ const AskQuestionForm = () => {
                     </div>
                     <div className='mt-5'>
                         <p className='mb-2'>
-                            অনুগ্রহ পূর্বক প্রশ্নটি বাংলায় অথবা ইংরেজিতে লিখুন। ‍
-                            <span className='text-red-500'>Banglish-এ লিখবেন না।</span> জাযাকাল্লাহু খাইরান!
+                            অনুগ্রহ পূর্বক প্রশ্নটি বাংলায় অথবা ইংরেজিতে লিখুন।
+                            <span className='text-red-500'> Banglish-এ লিখবেন না।</span> জাযাকাল্লাহু খাইরান!
                             <br />
                             আপনার প্রশ্নটি লিখুন
                             <span className='text-red-500'>* </span> </p>
@@ -137,7 +138,7 @@ const AskQuestionForm = () => {
                         type="text"
                         name="category"
                     >
-                        {categories.slice(1,).map((category) => <CategoryOption
+                        {categories.map((category) => <CategoryOption
                             key={category._id}
                             category={category}
                             className='text-black bg-white'
