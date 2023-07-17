@@ -36,7 +36,7 @@ const AskQuestionForm = () => {
             email,
             mobileNumber,
             question: content,
-            category,
+            usersCategory: category,
             date: new Date()
         };
 

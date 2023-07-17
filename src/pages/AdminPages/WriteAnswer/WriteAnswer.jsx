@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import OutletContainer from '../../../components/Container/OutletContainer';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import BackButton from '../../../components/Buttons/BackButton';
 import JoditEditor from 'jodit-react';
 import moment from 'moment';
@@ -9,11 +9,14 @@ import axios from 'axios';
 import CategoryOption from '../../QA/AskQuestionForm/CategoryOption';
 import { getAllAnswers, saveAnswer } from '../../../components/api/answers';
 import Swal from 'sweetalert2';
+import { deleteSingleQuestion } from '../../../components/api/questions';
 
 
 const WriteAnswer = () => {
     const singleQuestion = useLoaderData();
-    const { _id, question, name, date, email, category } = singleQuestion;
+    const { _id, question, name, date, email, usersCategory } = singleQuestion;
+    const [uploadButtonText, setUploadButtonText] = useState('উত্তর সাবমিট করুন')
+    const navigate = useNavigate();
 
     // Load categories 
     const { data: categories = [], refetch } = useQuery([''], async () => {
@@ -29,6 +32,7 @@ const WriteAnswer = () => {
     console.log(userQuestion)
     // handle answer submit
     const handleSubmitAnswer = (event) => {
+        setUploadButtonText('উত্তর পাঠানো হচ্ছে...')
         event.preventDefault();
 
         // get all answers length
@@ -47,14 +51,18 @@ const WriteAnswer = () => {
                     category,
                     date: new Date()
                 }
-                console.log(answerData)
+                // console.log(answerData)
                 saveAnswer(answerData)
                     .then(data => {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Alhamdulillah...',
-                            text: 'Answer has been sent.',
-                        })
+                        deleteSingleQuestion(_id)
+                            .then(data => {
+                                navigate('/give-answer/see-all-questions')
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Alhamdulillah...',
+                                    text: 'Answer has been sent.',
+                                })
+                            })
                     })
                     .catch(error => {
                         Swal.fire({
@@ -79,7 +87,7 @@ const WriteAnswer = () => {
 
                     <div className='md:border-l-2 border-[#005492] md:ps-2'><span className='text-[#005492]'>প্রশ্নকারীর ইমেইল:</span> {email}</div>
 
-                    <div className='md:border-l-2 border-[#005492] md:ps-2'><span className='text-[#005492] font-semibold'>ক্যাটাগরি:</span> {category}</div>
+                    <div className='md:border-l-2 border-[#005492] md:ps-2'><span className='text-[#005492] font-semibold'>ক্যাটাগরি:</span> {usersCategory}</div>
                 </div>
 
                 {/* Question Section */}
@@ -112,6 +120,7 @@ const WriteAnswer = () => {
                     <select
                         className='py-2 px-4 bg-neutral-200 w-full cursor-pointer'
                         required
+                        defaultValue={usersCategory}
                         type="text"
                         name="category"
                     >
@@ -125,7 +134,7 @@ const WriteAnswer = () => {
                         type='submit'
                         disabled={answer.length < 20}
                         className='py-2 px-4 mt-5 bg-[#005492] hover:bg-[#006fbe] text-white'
-                    >উত্তর সাবমিট করুন</button>
+                    >{uploadButtonText}</button>
                 </form>
 
             </OutletContainer>
