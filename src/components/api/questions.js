@@ -25,3 +25,15 @@ export const getSingleQuestion = async (id) => {
     const data = await response.json();
     return data;
 }
+
+// delete question after send answer successfully
+export const deleteSingleQuestion = async (id) => {
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL_API}/question/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+        },
+    })
+    const data = await response.json();
+    return data;
+}
