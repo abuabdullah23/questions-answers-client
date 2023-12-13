@@ -20,7 +20,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: <Home />,
+                index: true
             }
         ]
     },
@@ -74,7 +75,7 @@ const router = createBrowserRouter([
                 loader: () => getAllQuestions(),
             },
             {
-                path: 'write-answer/:id',
+                path: ':id',
                 element: <WriteAnswer />,
                 loader: ({ params }) => getSingleQuestion(params.id)
             },

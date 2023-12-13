@@ -28,7 +28,7 @@ const QuestionsAnswers = () => {
 
     const { data: questionsAnswers = [], isLoading, isError } = useQuery(['questionsAnswers', category], async () => {
         setLoading(true);
-        console.log(questionsAnswers)
+        // console.log(questionsAnswers)
         try {
             const response = await fetch(`${import.meta.env.VITE_BASE_URL_API}/questions-answers`);
             const data = await response.json();

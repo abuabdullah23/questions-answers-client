@@ -80,7 +80,7 @@ const SinglePendingQuestion = ({ pendingQuestion, index, fetchQuestions }) => {
 
                     <div className='my-2'>
                         <Link
-                            to={`/give-answer/write-answer/${_id}`}
+                            to={`/give-answer/${_id}`}
                             className='py-2 px-4 rounded-md border-l-2 border-[#005492] bg-neutral-200 hover:bg-[#005492] hover:text-white'>
                             উত্তর দিন
                         </Link>

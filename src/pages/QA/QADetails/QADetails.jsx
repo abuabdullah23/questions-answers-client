@@ -13,7 +13,7 @@ const QADetails = () => {
 
     return (
         <>
-            <div className='text-center w-full bg-[#005492] text-white text-2xl py-2 sticky top-[72px]'>
+            <div className='text-center w-full bg-[#005492] text-white text-2xl py-2 sticky top-[52px]'>
                 {
                     category ? `প্রশ্নোত্তর/${category}` : 'প্রশ্নোত্তর'
                 }
